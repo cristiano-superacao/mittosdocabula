@@ -2,6 +2,12 @@
 
 Uma plataforma moderna e completa para criar e gerenciar torneios de fantasy football, inspirada no rodada10.com com melhorias significativas.
 
+## 🌐 Links Ativos
+
+- **🌍 Site Live**: [https://mittosdocabula.netlify.app](https://mittosdocabula.netlify.app)
+- **📁 Repositório GitHub**: [https://github.com/cristiano-superacao/mittosdocabula](https://github.com/cristiano-superacao/mittosdocabula)
+- **⚡ Deploy Status**: [![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://app.netlify.com/sites/mittosdocabula/deploys)
+
 ## 🚀 Características Principais
 
 - **Design Moderno e Responsivo**: Interface clean e intuitiva que funciona perfeitamente em todos os dispositivos
@@ -9,15 +15,18 @@ Uma plataforma moderna e completa para criar e gerenciar torneios de fantasy foo
 - **Sistema de Categorias**: Torneios organizados em Diamante, Ouro, Prata e Especiais
 - **Layout Inspirado**: Baseado no rodada10.com mas com melhorias de UX/UI
 - **Tecnologia Moderna**: Next.js 14, TypeScript, Tailwind CSS
+- **Deploy Automático**: GitHub → Netlify com CI/CD
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Framework**: Next.js 14 com App Router
+- **Framework**: Next.js 14 with App Router
 - **Linguagem**: TypeScript
-- **Estilização**: Tailwind CSS
+- **Estilização**: Tailwind CSS with PostCSS
 - **Ícones**: Lucide React
 - **Notificações**: React Hot Toast
+- **Forms**: React Hook Form
 - **Linting**: ESLint
+- **Deploy**: Netlify with automatic builds
 - **Autenticação**: NextAuth.js (preparado)
 - **Banco de Dados**: Prisma + PostgreSQL (preparado)
 
@@ -33,6 +42,9 @@ Uma plataforma moderna e completa para criar e gerenciar torneios de fantasy foo
 - [x] Sistema de login/registro (frontend)
 - [x] Componentes reutilizáveis
 - [x] Design system completo
+- [x] **Deploy no GitHub e Netlify**
+- [x] **Build estático otimizado**
+- [x] **CI/CD configurado**
 
 ### 🚧 Em Desenvolvimento
 - [ ] Sistema de autenticação backend
@@ -40,6 +52,51 @@ Uma plataforma moderna e completa para criar e gerenciar torneios de fantasy foo
 - [ ] Integração com PIX
 - [ ] Banco de dados PostgreSQL
 - [ ] API de torneios
+- [ ] Servidor cloud backend
+
+## 🚀 Deploy e Hospedagem
+
+### Configuração de Deploy
+
+O projeto está configurado para deploy automático:
+
+**GitHub → Netlify Pipeline:**
+1. Push para branch `main` no GitHub
+2. Netlify detecta mudanças automaticamente
+3. Build com `npm run build` (Next.js static export)
+4. Deploy para `https://mittosdocabula.netlify.app`
+
+### Configurações de Build
+
+```toml
+# netlify.toml
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+### Comandos de Deploy Local
+
+```bash
+# Build para produção
+npm run build
+
+# Preview do build
+npm start
+
+# Deploy via git
+git add .
+git commit -m "Deploy update"
+git push origin main  # Auto-deploy para Netlify
+```
 
 ## 🎨 Design System
 
@@ -56,18 +113,19 @@ Uma plataforma moderna e completa para criar e gerenciar torneios de fantasy foo
 - **🥈 Prata**: Torneios de valor médio e alto
 - **🏆 Especiais**: Torneios mensais e eliminação
 
-## 🚀 Como Executar
+## 💻 Como Executar Localmente
 
 ### Pré-requisitos
 - Node.js 18+ 
 - NPM ou Yarn
+- Git
 
-### Instalação
+### Instalação e Execução
 
 1. **Clone o projeto**:
    ```bash
-   git clone <repository-url>
-   cd Mittos_do_Cabula_1.0
+   git clone https://github.com/cristiano-superacao/mittosdocabula.git
+   cd mittosdocabula
    ```
 
 2. **Instale as dependências**:
@@ -88,7 +146,7 @@ Uma plataforma moderna e completa para criar e gerenciar torneios de fantasy foo
 ### Scripts Disponíveis
 
 - `npm run dev` - Executa em modo desenvolvimento
-- `npm run build` - Gera build de produção
+- `npm run build` - Gera build de produção (static export)
 - `npm run start` - Executa build de produção
 - `npm run lint` - Executa linting do código
 
@@ -120,9 +178,9 @@ Uma plataforma moderna e completa para criar e gerenciar torneios de fantasy foo
 
 ## 🎯 Credenciais de Demonstração
 
-Para testar o sistema de login:
-- **E-mail**: cssinformatica2008@gmail.com
-- **Senha**: 01062006cs
+Para testar o sistema de login no site live:
+- **E-mail**: `cssinformatica2008@gmail.com`
+- **Senha**: `01062006cs`
 
 ## 🔧 Estrutura do Projeto
 
@@ -140,7 +198,9 @@ src/
 │   ├── Logo.tsx           # Componente de logo
 │   ├── TournamentCard.tsx # Card de torneio
 │   └── FeaturesSection.tsx # Seção de recursos
-└── lib/                   # Utilitários e configurações
+├── netlify.toml           # Configuração de deploy
+├── next.config.js         # Config Next.js + static export
+└── package.json           # Dependências e scripts
 ```
 
 ## 🎨 Componentes Principais
@@ -167,33 +227,65 @@ Navegação responsiva com:
 
 ## 🚀 Próximos Passos
 
-1. **Autenticação Completa**
+1. **Servidor Cloud Backend**
+   - Setup de servidor na nuvem
+   - API REST com Node.js/Express
+   - Conectar com frontend
+
+2. **Autenticação Completa**
    - Integração com NextAuth.js
    - Middleware de proteção de rotas
    - Gerenciamento de sessões
 
-2. **Banco de Dados**
+3. **Banco de Dados**
    - Setup do Prisma
+   - PostgreSQL na nuvem
    - Modelos de dados
-   - Migrações
 
-3. **Painel Administrativo**
+4. **Painel Administrativo**
    - Dashboard de gestão
    - CRUD de torneios
    - Relatórios
 
-4. **Integração PIX**
+5. **Integração PIX**
    - API de pagamentos
    - Webhook de confirmação
    - Gestão financeira
 
+## 🔄 Workflow de Desenvolvimento
+
+```bash
+# 1. Desenvolvimento local
+npm run dev
+
+# 2. Teste mudanças
+npm run build && npm start
+
+# 3. Commit e push
+git add .
+git commit -m "feat: nova funcionalidade"
+git push origin main
+
+# 4. Deploy automático no Netlify ✨
+```
+
+## 📊 Status do Projeto
+
+- **Versão**: 1.0.0
+- **Status**: ✅ Frontend Completo + Deploy Ativo
+- **Ambiente de Produção**: [mittosdocabula.netlify.app](https://mittosdocabula.netlify.app)
+- **Último Deploy**: Automático via GitHub
+- **Performance**: PWA-ready, Core Web Vitals otimizados
+
 ## 📞 Contato e Suporte
 
-Para dúvidas, sugestões ou suporte:
-- **E-mail**: contato@mittosdocabula.com
-- **Versão**: 1.0.0
-- **Status**: Em desenvolvimento ativo
+**Cristiano Superação**
+- **E-mail**: cssinformatica2008@gmail.com
+- **GitHub**: [@cristiano-superacao](https://github.com/cristiano-superacao)
+- **LinkedIn**: [Cristiano Superação](https://linkedin.com/in/cristiano-superacao)
 
 ---
 
 **MittoS do Cabula** - A evolução das plataformas de torneios de fantasy football! 🚀⚽
+
+*Desenvolvido com ❤️ para a comunidade de Fantasy Football do Cabula*
