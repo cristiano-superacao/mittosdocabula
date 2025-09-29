@@ -33,6 +33,7 @@ Uma plataforma moderna e completa para criar e gerenciar torneios de fantasy foo
 ## 📋 Funcionalidades Implementadas
 
 ### ✅ Concluído
+
 - [x] Estrutura base do projeto Next.js
 - [x] Logo profissional com múltiplas variações
 - [x] Layout responsivo completo
@@ -47,6 +48,7 @@ Uma plataforma moderna e completa para criar e gerenciar torneios de fantasy foo
 - [x] **CI/CD configurado**
 
 ### 🚧 Em Desenvolvimento
+
 - [ ] Sistema de autenticação backend
 - [ ] Painel administrativo
 - [ ] Integração com PIX
@@ -101,6 +103,7 @@ git push origin main  # Auto-deploy para Netlify
 ## 🎨 Design System
 
 ### Cores Principais
+
 - **Primary**: Tons de azul (#3b82f6)
 - **Secondary**: Tons de ciano (#0ea5e9)
 - **Success**: Verde (#22c55e)
@@ -108,6 +111,7 @@ git push origin main  # Auto-deploy para Netlify
 - **Danger**: Vermelho (#ef4444)
 
 ### Categorias de Torneios
+
 - **💎 Diamante**: Torneios premium com valores baixos
 - **🥇 Ouro**: Torneios intermediários
 - **🥈 Prata**: Torneios de valor médio e alto
@@ -116,7 +120,8 @@ git push origin main  # Auto-deploy para Netlify
 ## 💻 Como Executar Localmente
 
 ### Pré-requisitos
-- Node.js 18+ 
+
+- Node.js 18+
 - NPM ou Yarn
 - Git
 
